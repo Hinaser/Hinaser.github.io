@@ -20,13 +20,18 @@
         max-width 0
         max-height 100%
         overflow hidden
-        padding 0
+        padding 15px 0
 
         &.visible
           max-width $nav-width
           width $nav-width
           overflow scroll
           padding 15px
+
+        &::after
+          display block
+          content ''
+          height 15px
 
       article
         width $body-width
