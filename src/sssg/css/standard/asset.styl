@@ -1,0 +1,82 @@
+.balloon
+  $balloon-triangle-size = 11px
+  $balloon-triangle-left = 16px
+
+  position relative
+  display inline-block
+  min-width $balloon-triangle-left * 2 + $balloon-triangle-left * 2
+  border 1px solid rgba(0,0,0,.15)
+  border-radius 4px
+  padding 10px
+  box-shadow 0 2px 12px rgba(0,0,0,.15)
+  margin-left ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+  background-color #fff
+
+  &::before
+    position absolute
+    top $balloon-triangle-size * -1
+    left $balloon-triangle-left
+    width $balloon-triangle-size * 2
+    border-left $balloon-triangle-size solid transparent
+    border-right $balloon-triangle-size solid transparent
+    border-bottom $balloon-triangle-size solid rgba(0,0,0,.15)
+    display block
+    content ''
+
+  &::after
+    position absolute
+    top ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+    left $balloon-triangle-left + 1px
+    border-left ($balloon-triangle-size - 1px) solid transparent
+    border-right ($balloon-triangle-size - 1px) solid transparent
+    border-bottom ($balloon-triangle-size - 1px) solid #fff
+    display block
+    content ''
+
+  &.sticky
+    margin 0 !important
+
+  &.left
+    margin-left $balloon-triangle-size
+    min-width unset
+    min-height $balloon-triangle-left * 4
+    margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+
+    &::before
+      top $balloon-triangle-left
+      left $balloon-triangle-size * -1
+      width unset
+      border-left none
+      border-top $balloon-triangle-size solid transparent
+      border-bottom $balloon-triangle-size solid transparent
+      border-right $balloon-triangle-size solid rgba(0,0,0,.15)
+    &::after
+      top $balloon-triangle-left + 1px
+      left ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+      border-left none
+      border-top ($balloon-triangle-size - 1px) solid transparent
+      border-bottom ($balloon-triangle-size - 1px) solid transparent
+      border-right ($balloon-triangle-size - 1px) solid #fff
+
+  &.right
+    margin-left 0
+    margin-right $balloon-triangle-size
+    min-width unset
+    min-height $balloon-triangle-left * 4
+    margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+
+    &::before
+      top $balloon-triangle-left
+      right $balloon-triangle-size * -2
+      left unset
+      width unset
+      border-top $balloon-triangle-size solid transparent
+      border-bottom $balloon-triangle-size solid transparent
+      border-left $balloon-triangle-size solid rgba(0,0,0,.15)
+    &::after
+      top $balloon-triangle-left + 1px
+      right ($balloon-triangle-size * 2 - sin(60deg) * sin(45deg) * 2) * -1
+      left unset
+      border-top ($balloon-triangle-size - 1px) solid transparent
+      border-bottom ($balloon-triangle-size - 1px) solid transparent
+      border-left ($balloon-triangle-size - 1px) solid #fff
