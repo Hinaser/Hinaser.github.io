@@ -1,0 +1,30 @@
+@media screen and (max-width 799px)
+  $nav-width = 380px
+
+  body
+    width 100%
+
+    header
+      height 40px
+
+    main
+      nav
+        position fixed
+        top 0
+        right 0
+        width 0
+        max-width 0
+        overflow hidden
+        padding 0
+
+        &.visible
+          max-width 100%
+          width $nav-width
+          overflow scroll
+          padding 15px
+
+      article
+        width 100%
+
+    footer
+      width 100%

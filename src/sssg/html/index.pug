@@ -2,6 +2,7 @@ doctype html
 html
   head
     meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1.0")
     title Hinaser
     // uncache
     script(src="./-/js/main.js")
@@ -13,8 +14,14 @@ html
     // link(href="./-/css/lib.css", rel="stylesheet")
   body
     header
-    nav
-      | b
+      | a
     main
+      nav
+        - for(var i=0;i<30;i++)
+          | b#[br]
       article
-        | c
+        - for(var i=0;i<30;i++)
+          | c#[br]
+
+    footer
+      | d
