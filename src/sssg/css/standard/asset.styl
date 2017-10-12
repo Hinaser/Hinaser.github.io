@@ -4,7 +4,6 @@
 
   position relative
   display inline-block
-  min-width $balloon-triangle-left * 2 + $balloon-triangle-left * 2
   border 1px solid rgba(0,0,0,.15)
   border-radius 4px
   padding 10px
@@ -12,71 +11,109 @@
   margin-left ($balloon-triangle-left * -1) - ($balloon-triangle-size)
   background-color #fff
 
-  &::before
+  &::before, &::after
     position absolute
-    top $balloon-triangle-size * -1
-    left $balloon-triangle-left
-    width $balloon-triangle-size * 2
-    border-left $balloon-triangle-size solid transparent
-    border-right $balloon-triangle-size solid transparent
-    border-bottom $balloon-triangle-size solid rgba(0,0,0,.15)
-    display block
+    border-style solid
+    display table
     content ''
 
+  &::before
+    top $balloon-triangle-size * -1
+    left $balloon-triangle-left
+    border-width $balloon-triangle-size
+    border-color  transparent transparent rgba(0,0,0,.15) transparent
+
   &::after
-    position absolute
     top ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
-    left $balloon-triangle-left + 1px
-    border-left ($balloon-triangle-size - 1px) solid transparent
-    border-right ($balloon-triangle-size - 1px) solid transparent
-    border-bottom ($balloon-triangle-size - 1px) solid #fff
-    display block
-    content ''
+    left $balloon-triangle-left + sin(45deg)
+    border-width ($balloon-triangle-size - sin(45deg))
+    border-color  transparent transparent #fff transparent
 
   &.sticky
     margin 0 !important
 
   &.left
     margin-left $balloon-triangle-size
-    min-width unset
-    min-height $balloon-triangle-left * 4
     margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+
+    &::before, &::after
+      border-left none
 
     &::before
       top $balloon-triangle-left
       left $balloon-triangle-size * -1
-      width unset
-      border-left none
-      border-top $balloon-triangle-size solid transparent
-      border-bottom $balloon-triangle-size solid transparent
-      border-right $balloon-triangle-size solid rgba(0,0,0,.15)
+      border-color transparent rgba(0,0,0,.15) transparent transparent
+
     &::after
-      top $balloon-triangle-left + 1px
+      top $balloon-triangle-left + sin(45deg)
       left ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
-      border-left none
-      border-top ($balloon-triangle-size - 1px) solid transparent
-      border-bottom ($balloon-triangle-size - 1px) solid transparent
-      border-right ($balloon-triangle-size - 1px) solid #fff
+      border-color transparent #fff transparent transparent
 
   &.right
     margin-left 0
     margin-right $balloon-triangle-size
-    min-width unset
-    min-height $balloon-triangle-left * 4
     margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+
+    &::before, &::after
+      left auto
+      border-right none
 
     &::before
       top $balloon-triangle-left
-      right $balloon-triangle-size * -2
-      left unset
-      width unset
-      border-top $balloon-triangle-size solid transparent
-      border-bottom $balloon-triangle-size solid transparent
-      border-left $balloon-triangle-size solid rgba(0,0,0,.15)
+      right $balloon-triangle-size * -1
+      border-color transparent transparent transparent rgba(0,0,0,.15)
+
     &::after
-      top $balloon-triangle-left + 1px
-      right ($balloon-triangle-size * 2 - sin(60deg) * sin(45deg) * 2) * -1
-      left unset
-      border-top ($balloon-triangle-size - 1px) solid transparent
-      border-bottom ($balloon-triangle-size - 1px) solid transparent
-      border-left ($balloon-triangle-size - 1px) solid #fff
+      top $balloon-triangle-left + sin(45deg)
+      right ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+      border-color transparent transparent transparent #fff
+
+
+
+span.tag
+  display inline-flex
+  border-radius 4px
+  background-color #f5f5f5
+  color #4a4a4a
+  font-size .8em
+  padding 0 .75rem
+  height 2rem
+  line-height 2rem
+  white-space nowrap
+  align-items center
+  justify-content center
+
+  & + span.tag
+    margin-left .5rem
+
+  a
+    text-decoration none
+
+
+
+@keyframes spinning
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(360deg)
+
+@keyframes bigger
+  from
+    transform scale(1)
+  to
+    transform scale(1.05)
+
+@keyframes shake
+  from
+    transform rotate(0deg)
+  25%
+    transform rotate(3deg)
+  50%
+    transform rotate(0deg)
+  75%
+    transform rotate(-3deg)
+  to
+    transform rotate(0deg)
+
+
