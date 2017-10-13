@@ -4,14 +4,14 @@ html
     meta(charset="utf-8")
     meta(name="viewport", content="initial-scale=1.0")
     title Hinaser
+    script(src="../js/lib.js")
+    link(href="../css/lib.css", rel="stylesheet")
     // uncache
     script(src="../js/main.js")
     // enduncache
     // uncache
     link(href="../css/main.css", rel="stylesheet")
     // enduncache
-    script(src="../js/lib.js")
-    link(href="../css/lib.css", rel="stylesheet")
   body
     header
       h1 HINASE
@@ -38,19 +38,35 @@ html
             .summary
               | Interested in Machine Learning, NLP, Browser extension development, Data business in finance.
             .occupation(title="occupation")
+              i.fa.fa-user
+              | Data Engineer
+            .organization(title="organization")
               i.fa.fa-building
-              | Data Engineer / Publisher
+              | Publisher
             .location(title="Location")
               i.fa.fa-map-marker
               | Tokyo, Japan
-        hr
-        .topic-tags
-          span.tag Finance
-          span.tag IT
-          span.tag Machine Learning
+
+        .group-with-caption
+          .caption Topics
+          .tags
+            a(href="#")
+              span.tag Finance
+            a(href="#")
+              span.tag IT
+            a(href="#")
+              span.tag Machine Learning
+            a(href="#")
+              span.tag Daily life
+            a(href="#")
+              span.tag Business
+
+        .group-with-caption
+          .caption Sub topics
+          | test
 
       article
-        - for(var i=0;i<30;i++)
+        - for(var i=0;i<100;i++)
           | #{i}#[br]
 
     footer

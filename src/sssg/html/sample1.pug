@@ -4,14 +4,14 @@ html
     meta(charset="utf-8")
     meta(name="viewport", content="initial-scale=1.0")
     title Hinaser
+    script(src="../js/lib.js")
+    link(href="./-/css/lib.css", rel="stylesheet")
     // uncache
     script(src="../js/main.js")
     // enduncache
     // uncache
     link(href="../css/main.css", rel="stylesheet")
     // enduncache
-    script(src="../js/lib.js")
-    // link(href="./-/css/lib.css", rel="stylesheet")
   body
     p a
     div
@@ -26,14 +26,15 @@ html
         | bteatdddddddddddddddddddddd#[br]
         | bteatdddddddddddddddddddddd#[br]
     hr
-    span.tag
-      a(href="#") 金融業
-    span.tag
-      a(href="#") 出版
-    span.tag
-      a(href="#") 製造業
-    span.tag
-      a(href="#") 技能
+    .tags
+      span.tag
+        a(href="#") 金融業
+      span.tag
+        a(href="#") 出版
+      span.tag
+        a(href="#") 製造業
+      span.tag
+        a(href="#") 技能
     hr
     select#test
       option(selected)

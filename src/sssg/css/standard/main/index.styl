@@ -27,10 +27,13 @@ body
     padding-right 10px
     background-color #fff
 
+
+
+
+
 .profile
   $profile-size = 240px
   width $profile-size
-  height $profile-size
 
   .fa
     margin-right 10px
@@ -66,14 +69,28 @@ body
       &:hover
         animation spinning linear .4s 1
 
+  .occupation,.summary
+    margin-top 15px
+
   .summary
     font-size .9em
     color #aaa
-    margin-top 15px
 
-  .occupation
-    margin-top 15px
-    //
 
-  .location
-    //
+
+
+
+.group-with-caption
+  position relative
+  margin-top 30px
+  border-top 1px solid #ccc
+  padding-top 30px
+
+  .caption
+    position absolute
+    height 1.2rem
+    line-height 1.2rem
+    top -.6rem
+    left 20px
+    background-color #fff
+    padding 0 10px

@@ -1,5 +1,6 @@
 @media screen and (min-width: 1200px)
   $header-height = 300px
+  $header-height-fixed = 100px
   $body-width = 1200px
   $nav-width = 380px
 
@@ -11,6 +12,7 @@
       background-image url(../image/logo.jpg)
       background-attachment fixed
       position relative
+      transition all ease .3s
 
       h1
         font-size 6em
@@ -26,6 +28,14 @@
         color #fff
         font-size 2em
 
+      &.fixed-header
+        position fixed
+        top 0
+        left 0
+        width 100%
+        height $header-height-fixed
+        margin 0
+        z-index 2
 
     main
       &::after
