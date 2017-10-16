@@ -3,22 +3,59 @@ export default class Header {
     this.selector = "body > header";
     this.element = $(this.selector);
     
+    this.sticky();
+  }
+  
+  sticky(){
     let $window = $(window);
+    let header = this.element;
     let resizing = false;
-    
+    let scrollDownThreshold = 200;
+    let scrollUpThreshold = 100;
+  
+    const onTransitionEnd = (e) => {
+      header.removeClass("disable-height-animation");
+      resizing = false;
+    };
+  
+    header.on("transitionend webkitTransitionEnd oTransitionEnd", onTransitionEnd);
+  
     $window.on("scroll", (e) => {
-      if($window.scrollTop() > 100 && window.matchMedia("(min-width: 1200px)").matches){
-        resizing = true;
-        this.element.addClass("fixed-header");
-        this.element.one("transitionend webkitTransitionEnd oTransitionEnd", ()=>{
-          resizing = false;
-          console.log(resizing);
+      if(!window.matchMedia("(min-width: 1200px)").matches || resizing) return;
+    
+      const scrollTop = $window.scrollTop();
+    
+      if(scrollUpThreshold < scrollTop && scrollTop < scrollDownThreshold){
+        if(!header.hasClass("fixed-header")) return;
+      
+        if(!header.hasClass("scroll-margin")) header.addClass("scroll-margin");
+      
+        let header_height = 300 + 20 - scrollTop;
+        header.css({
+          height: header_height,
+          bottom: `calc(100% - ${header_height}px)`
         });
+        
+        return;
       }
-      else if(!resizing){
-        this.element.removeClass("fixed-header");
+    
+      if(scrollTop >= scrollDownThreshold){
+        if(header.hasClass("fixed-header")) return;
+      
+        resizing = true;
+        header.addClass("fixed-header");
       }
-    })
+      else if(scrollTop <= scrollUpThreshold){
+        if(!header.hasClass("fixed-header")) return;
+      
+        header.removeAttr("style");
+        header.removeClass("scroll-margin");
+      
+        resizing = true;
+        header.addClass("disable-height-animation");
+        header.removeClass("fixed-header");
+      }
+    });
   }
 }
 
