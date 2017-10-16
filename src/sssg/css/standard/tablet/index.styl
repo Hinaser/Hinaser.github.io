@@ -30,6 +30,9 @@
         & + main
           margin-top $header-height + 20
 
+          nav
+            right 0
+
       &.disable-height-animation
         transition height 0s, bottom 0s, margin-bottom ease .3s, margin-top ease .3s
 
@@ -49,6 +52,10 @@
           width $nav-width
           overflow scroll
           padding 15px
+          box-shadow 0 2px 12px rgba(0,0,0,.15)
+          border 1px solid rgba(33,33,33,.3)
+          opacity .95
+          z-index 3
 
         &::after
           display block

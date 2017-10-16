@@ -8,12 +8,19 @@
       position fixed
       top 0
       left 0
-      width 100%
+      right 0
       margin-top 0
       height 40px
+      background-color #ccc
+      opacity .9
+
+      .site-title
+        font-size 24px
+        height $h = 40px
+        line-height $h
 
     main
-      margin-top 60px
+      margin-top 70px
 
       nav
         position fixed
@@ -30,9 +37,14 @@
           width $nav-width
           overflow scroll
           padding 15px
+          box-shadow 0 2px 12px rgba(0,0,0,.15)
+          border 1px solid rgba(33,33,33,.3)
+          opacity .95
+          z-index 3
 
       article
         width 100%
+        padding 0 20px
 
     footer
       width 100%
