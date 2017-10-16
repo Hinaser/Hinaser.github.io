@@ -1,0 +1,140 @@
+/**
+ * asset.styl
+ *
+ * Defines portable styles which is completely independent of any project.
+ */
+
+.balloon
+  $balloon-triangle-size = 11px
+  $balloon-triangle-left = 16px
+
+  position relative
+  display inline-block
+  border 1px solid rgba(0,0,0,.15)
+  border-radius 4px
+  padding 10px
+  box-shadow 0 2px 12px rgba(0,0,0,.15)
+  margin-left ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+  background-color #fff
+
+  &::before, &::after
+    position absolute
+    border-style solid
+    display table
+    content ''
+
+  &::before
+    top $balloon-triangle-size * -1
+    left $balloon-triangle-left
+    border-width $balloon-triangle-size
+    border-color  transparent transparent rgba(0,0,0,.15) transparent
+
+  &::after
+    top ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+    left $balloon-triangle-left + sin(45deg)
+    border-width ($balloon-triangle-size - sin(45deg))
+    border-color  transparent transparent #fff transparent
+
+  &.sticky
+    margin 0 !important
+
+  &.left
+    margin-left $balloon-triangle-size
+    margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+
+    &::before, &::after
+      border-left none
+
+    &::before
+      top $balloon-triangle-left
+      left $balloon-triangle-size * -1
+      border-color transparent rgba(0,0,0,.15) transparent transparent
+
+    &::after
+      top $balloon-triangle-left + sin(45deg)
+      left ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+      border-color transparent #fff transparent transparent
+
+  &.right
+    margin-left 0
+    margin-right $balloon-triangle-size
+    margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
+
+    &::before, &::after
+      left auto
+      border-right none
+
+    &::before
+      top $balloon-triangle-left
+      right $balloon-triangle-size * -1
+      border-color transparent transparent transparent rgba(0,0,0,.15)
+
+    &::after
+      top $balloon-triangle-left + sin(45deg)
+      right ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+      border-color transparent transparent transparent #fff
+
+
+.tags
+  display flex
+  justify-content flex-start
+  flex-wrap wrap
+  align-items ceter
+  box-align center
+  box-pack start
+  margin-bottom -.5rem
+
+  .tag
+    display inline-flex
+    border-radius 4px
+    background-color #f5f5f5
+    color #4a4a4a
+    font-size .8em
+    padding 0 .75rem
+    height 2rem
+    line-height 2rem
+    white-space nowrap
+    align-items center
+    justify-content center
+    margin-bottom .5rem
+    margin-right .5rem
+    transition background-color .3s ease
+
+    &:hover
+      background-color #ccc
+
+    &.active:not(:hover)
+      background-color dodgerblue
+      color #fff
+
+  a
+    text-decoration none
+
+
+
+@keyframes spinning
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(360deg)
+
+@keyframes bigger
+  from
+    transform scale(1)
+  to
+    transform scale(1.05)
+
+@keyframes shake
+  from
+    transform rotate(0deg)
+  25%
+    transform rotate(3deg)
+  50%
+    transform rotate(0deg)
+  75%
+    transform rotate(-3deg)
+  to
+    transform rotate(0deg)
+
+

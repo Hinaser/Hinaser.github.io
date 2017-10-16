@@ -1,0 +1,108 @@
+body
+  margin 0 auto
+  position relative
+
+  header
+    margin-top 20px
+    margin-bottom 20px
+    background-color #fff
+    border-radius 3px
+    box-sizing content-box
+    border 6px solid #fff
+    box-shadow 0 2px 12px rgba(0,0,0,.15)
+    position relative
+
+    .site-title
+      position absolute
+      left 20px
+      bottom 0
+      font-size 3em
+      color #fff
+      font-weight bold
+
+  main
+    background-color #fff
+
+    nav
+      padding 10px
+      background-color #fff
+      transition all ease 0.3s
+
+    article
+      background-color #fff
+      padding 10px
+
+  footer
+    margin-top 20px
+    margin-bottom 20px
+    padding-left 10px
+    padding-right 10px
+    background-color #fff
+
+
+
+
+
+.profile
+  $profile-size = 240px
+  width $profile-size
+
+  .fa
+    margin-right 10px
+    width 14px
+    color #666
+
+  .picture
+    max-width 100%
+    border-radius ($profile-size / 2)
+    border 1px solid transparent
+
+    img
+      max-width 100%
+      border-radius ($profile-size / 2)
+      border 6px solid rgba(255,255,255,.3)
+
+  .name
+    font-weight bold
+    font-size 1.5em
+
+  .social
+    height 24px
+
+    a
+      display inline-block
+      text-decoration none
+      width 24px
+      height 24px
+
+      & + a
+        margin-left 10px
+
+      &:hover
+        animation spinning linear .4s 1
+
+  .occupation,.summary
+    margin-top 15px
+
+  .summary
+    font-size .9em
+    color #aaa
+
+
+
+
+
+.group-with-caption
+  position relative
+  margin-top 30px
+  border-top 1px solid #ccc
+  padding-top 30px
+
+  .caption
+    position absolute
+    height 1.2rem
+    line-height 1.2rem
+    top -.6rem
+    left 20px
+    background-color #fff
+    padding 0 10px

@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1.0")
+    title Hinaser
+    script(src="./-/js/lib.js")
+    link(href="./-/css/lib.css", rel="stylesheet")
+    // uncache
+    script(src="./-/js/main.js")
+    // enduncache
+    // uncache
+    link(href="./-/css/main.css", rel="stylesheet")
+    // enduncache
+  body
+    header
+      | ab
+    main
+      nav
+        - for(var i=0;i<30;i++)
+          | #{i}#[br]
+      article
+        - for(var i=0;i<30;i++)
+          | #{i}#[br]
+
+    footer
+      | d
