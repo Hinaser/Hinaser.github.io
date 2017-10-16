@@ -1,5 +1,6 @@
 @media screen and (min-width 800px) and (max-width 1199px)
   $header-height = 300px
+  $header-height-fixed = 100px
   $body-width = 800px
   $nav-width = 380px
 
@@ -10,10 +11,29 @@
       height $header-height
       margin-bottom 20px
       background-image url(../image/logo.jpg)
-      background-size cover
+      background-attachment: fixed
+      transition all ease .3s
+
+      &.fixed-header
+        position fixed
+        bottom "calc(100% - %s)" % ($header-height-fixed)
+        left 0
+        right 0
+        height $header-height-fixed
+        margin 0
+        z-index 2
+        border-width 0 0 6px 0
+
+        &.scroll-margin
+          transition height 0s, bottom 0s
+
+        & + main
+          margin-top $header-height + 20
+
+      &.disable-height-animation
+        transition height 0s, bottom 0s, margin-bottom ease .3s, margin-top ease .3s
 
     main
-
       nav
         position fixed
         top 0

@@ -7,11 +7,13 @@ export default class Header {
   }
   
   sticky(){
+    let scrollDownThreshold = 200;
+    let scrollUpThreshold = 100;
+    let mediaQueryString = "(min-width: 1200px), (min-width: 800px) and (max-width: 1199px)";
+    
     let $window = $(window);
     let header = this.element;
     let resizing = false;
-    let scrollDownThreshold = 200;
-    let scrollUpThreshold = 100;
   
     const onTransitionEnd = (e) => {
       header.removeClass("disable-height-animation");
@@ -21,7 +23,7 @@ export default class Header {
     header.on("transitionend webkitTransitionEnd oTransitionEnd", onTransitionEnd);
   
     $window.on("scroll", (e) => {
-      if(!window.matchMedia("(min-width: 1200px)").matches || resizing) return;
+      if(!window.matchMedia(mediaQueryString).matches || resizing) return;
     
       const scrollTop = $window.scrollTop();
     
