@@ -4,10 +4,14 @@
   "description": "Source code for hinase.github.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sssg serve -s ./sssg -d ../- -r ../",
+    "rebuild": "sssg rebuild -s ./sssg -d ../- -r ../ -e development"
   },
   "keywords": [],
   "author": "Hinaser",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "sssg": "^1.1.3"
+  }
 }
