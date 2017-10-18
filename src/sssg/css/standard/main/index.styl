@@ -20,6 +20,26 @@ body
       color #fff
       font-weight bold
 
+    #sidebar-toggle-button
+      $sidebar-toggle-button-size = 36px
+      display none
+      height $sidebar-toggle-button-size
+      width $sidebar-toggle-button-size
+      line-height $sidebar-toggle-button-size
+      text-align center
+      border 1px solid transparent
+      border-radius ($sidebar-toggle-button-size / 2)
+      background-color white
+      opacity .3
+      position absolute
+      bottom 20px
+      right 20px
+      cursor pointer
+      transition opacity .3s ease
+
+      &:hover
+        opacity .7
+
   main
     background-color #fff
 
@@ -83,6 +103,7 @@ body
 
   .occupation,.summary
     margin-top 15px
+    white-space normal
 
   .summary
     font-size .9em

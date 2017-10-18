@@ -14,6 +14,9 @@
       background-attachment: fixed
       transition all ease .3s
 
+      #sidebar-toggle-button
+        display block
+
       &.fixed-header
         position fixed
         bottom "calc(100% - %s)" % ($header-height-fixed)
@@ -46,6 +49,8 @@
         max-height 100%
         overflow hidden
         padding 15px 0
+        z-index 3
+        white-space nowrap
 
         &.visible
           max-width $nav-width
@@ -55,7 +60,6 @@
           box-shadow 0 2px 12px rgba(0,0,0,.15)
           border 1px solid rgba(33,33,33,.3)
           opacity .95
-          z-index 3
 
         &::after
           display block
