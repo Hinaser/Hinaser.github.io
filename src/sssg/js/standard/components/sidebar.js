@@ -20,8 +20,10 @@ export default class Sidebar {
     let $button = $("#sidebar-toggle-button");
     
     const closeSidebar = (e) => {
-      // Do nothing if outside of sidebar has been clicked
-      if($sidebar.is(e.target) || $sidebar.has(e.target).length > 0){
+      // Do nothing if outside of sidebar has been clicked.
+      // However, if screen size is for mobile, close sidebar wherever is clicked.
+      if(!window.matchMedia("(max-width: 799px)").matches &&
+        $sidebar.is(e.target) || $sidebar.has(e.target).length > 0){
         return;
       }
       
