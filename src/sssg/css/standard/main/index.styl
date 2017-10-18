@@ -11,6 +11,8 @@ body
     border 6px solid #fff
     box-shadow 0 2px 12px rgba(0,0,0,.15)
     position relative
+    background-image url(../image/logo.jpg)
+    background-attachment fixed
 
     .site-title
       position absolute
@@ -20,13 +22,33 @@ body
       color #fff
       font-weight bold
 
+    #sidebar-toggle-button
+      $sidebar-toggle-button-size = 36px
+      display none
+      height $sidebar-toggle-button-size
+      width $sidebar-toggle-button-size
+      line-height $sidebar-toggle-button-size
+      text-align center
+      border 1px solid #aaa
+      border-radius ($sidebar-toggle-button-size / 2)
+      background-color white
+      opacity .3
+      position absolute
+      bottom 20px
+      right 20px
+      cursor pointer
+      transition opacity .3s ease
+
+      &:hover
+        opacity .7
+
   main
     background-color #fff
 
     nav
-      padding 10px
+      padding 20px
       background-color #fff
-      transition all ease 0.3s
+      transition all ease .3s
 
     article
       background-color #fff
@@ -83,6 +105,7 @@ body
 
   .occupation,.summary
     margin-top 15px
+    white-space normal
 
   .summary
     font-size .9em
@@ -106,3 +129,20 @@ body
     left 20px
     background-color #fff
     padding 0 10px
+
+
+
+
+.headline
+  .headline-item
+    .headline-title
+      font-size .9em
+      line-height 1.2rem
+      height 1.2rem
+
+    .headline-meta
+      font-size .8em
+      color #b3b3b3
+
+    & + .headline-item
+      margin-top 10px

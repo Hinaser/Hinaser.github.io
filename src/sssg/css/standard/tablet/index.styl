@@ -10,9 +10,11 @@
     header
       height $header-height
       margin-bottom 20px
-      background-image url(../image/logo.jpg)
-      background-attachment: fixed
       transition all ease .3s
+
+      #sidebar-toggle-button
+        display block
+        opacity .4
 
       &.fixed-header
         position fixed
@@ -30,9 +32,6 @@
         & + main
           margin-top $header-height + 20
 
-          nav
-            right 0
-
       &.disable-height-animation
         transition height 0s, bottom 0s, margin-bottom ease .3s, margin-top ease .3s
 
@@ -40,22 +39,20 @@
       nav
         position fixed
         top 0
-        right "calc(50% - %s / 2)" % ($body-width)
-        width 0
-        max-width 0
+        right $nav-width * -1
+        width $nav-width
         max-height 100%
         overflow hidden
-        padding 15px 0
+        z-index 3
+        white-space nowrap
 
         &.visible
           max-width $nav-width
-          width $nav-width
+          right 0
           overflow scroll
-          padding 15px
           box-shadow 0 2px 12px rgba(0,0,0,.15)
           border 1px solid rgba(33,33,33,.3)
           opacity .95
-          z-index 3
 
         &::after
           display block

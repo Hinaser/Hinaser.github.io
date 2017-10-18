@@ -1,7 +1,6 @@
 export default class Header {
   constructor(){
     this.selector = "body > header";
-    this.element = $(this.selector);
     
     this.sticky();
   }
@@ -12,7 +11,7 @@ export default class Header {
     let mediaQueryString = "(min-width: 1200px), (min-width: 800px) and (max-width: 1199px)";
     
     let $window = $(window);
-    let header = this.element;
+    let header = $(this.selector);
     let resizing = false;
   
     const onTransitionEnd = (e) => {

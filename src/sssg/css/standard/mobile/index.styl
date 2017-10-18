@@ -13,11 +13,22 @@
       height 40px
       background-color #ccc
       opacity .9
+      border-width 0 0 6px 0
+      border-radius 0
 
       .site-title
         font-size 24px
         height $h = 40px
         line-height $h
+
+      #sidebar-toggle-button
+        display block
+        position fixed
+        bottom 20px
+        right 20px
+        opacity .2
+        background-color #ccc
+        z-index 4
 
     main
       margin-top 70px
@@ -25,18 +36,14 @@
       nav
         position fixed
         top 0
-        right 0
-        width 0
-        max-width 0
-        overflow hidden
-        padding 0
+        right $nav-width * -1
+        width $nav-width
         max-height 100%
+        overflow scroll
 
         &.visible
           max-width 100%
-          width $nav-width
-          overflow scroll
-          padding 15px
+          right 0
           box-shadow 0 2px 12px rgba(0,0,0,.15)
           border 1px solid rgba(33,33,33,.3)
           opacity .95
