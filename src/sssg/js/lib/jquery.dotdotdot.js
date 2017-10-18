@@ -483,8 +483,7 @@
         var h = window.getComputedStyle( this.$dot[ 0 ] )[ arr[ a ] ];
         if ( h.slice( -2 ) == 'px' )
         {
-          //h = parseInt( h, 10 );
-          h = h.slice(0, h.length - 2);
+          h = parseFloat( h );
           hgh = hgh ? Math.min( hgh, h ) : h;
         }
       }
@@ -501,8 +500,7 @@
             var p = window.getComputedStyle( this.$dot[ 0 ] )[ arr[ a ] ];
             if ( p.slice( -2 ) == 'px' )
             {
-              //hgh -= parseInt( p, 10 );
-              hgh -= p.slice(0, p.length - 2);
+              hgh -= parseFloat( p );
             }
           }
           break;
