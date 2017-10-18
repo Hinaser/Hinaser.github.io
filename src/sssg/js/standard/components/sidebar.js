@@ -9,7 +9,8 @@ export default class Sidebar {
   wrapHeadline(){
     let headlineTitle = $(this.selector).find(".headline .headline-title");
     headlineTitle.dotdotdot({
-      truncate: "letter"
+      truncate: "letter",
+      watch: true
     });
   }
   
