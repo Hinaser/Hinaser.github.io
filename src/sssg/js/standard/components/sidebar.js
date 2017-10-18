@@ -17,6 +17,7 @@ export default class Sidebar {
   initToggleButton(){
     let $document = $(document);
     let $sidebar = $(this.selector);
+    let $tags = $sidebar.find(".tags");
     let $button = $("#sidebar-toggle-button");
     
     const closeSidebar = (e) => {
@@ -26,10 +27,10 @@ export default class Sidebar {
         $sidebar.is(e.target) || $sidebar.has(e.target).length > 0){
         return;
       }
-      
+  
       $sidebar.removeClass("visible");
     };
-  
+    
     const onToggleButtonClicked = (e) => {
       e.preventDefault();
       e.stopPropagation();
