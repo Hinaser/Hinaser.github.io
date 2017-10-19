@@ -4,6 +4,7 @@ export default class Sidebar {
     
     this.wrapHeadline();
     this.initToggleButton();
+    this.buildEmailAddress();
   }
   
   wrapHeadline(){
@@ -47,4 +48,27 @@ export default class Sidebar {
   
     $button.on("click", onToggleButtonClicked);
   }
+  
+  /**
+   * Preventing email spam
+   */
+  buildEmailAddress(){
+    let pageOpened = new Date().getTime();
+    let isAlreadyBuilt = false;
+    let $email = $(".profile .social .email");
+    
+    const addr = [8059, 6088, 7163, 5063, 7384, -2821, 5879, 6088, 7163, 4472, 8288, 5264, -3088, 5672, 6088, 8519, 5879, 8752, 4667, 7607, 4472, 5672, 5264, 8288, -841, 5672, 6944, 4472, 6088, 6727, -2821, 4864, 7384, 6944];
+    
+    const makeAddress = (e) => {
+      if(isAlreadyBuilt && (new Date().getTime() - pageOpened) > 1500) return;
+      
+      $email.attr("href", "mailto:" + addr.map(function(v){
+        return String.fromCharCode(Math.sqrt(v+4937))
+      }).join(""));
+    };
+    
+    $email.on("mouseover touchstart", makeAddress);
+  }
+  
+  
 }
