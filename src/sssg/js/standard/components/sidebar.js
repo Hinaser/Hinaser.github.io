@@ -10,7 +10,7 @@ export default class Sidebar {
     let headlineTitle = $(this.selector).find(".headline .headline-title");
     headlineTitle.dotdotdot({
       truncate: "letter",
-      watch: "window"
+      watch: true
     });
   }
   
