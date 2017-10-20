@@ -5,6 +5,7 @@ export default class Sidebar {
     this.wrapHeadline();
     this.initToggleButton();
     this.buildEmailAddress();
+    this.buildBalloon();
   }
   
   wrapHeadline(){
@@ -70,5 +71,11 @@ export default class Sidebar {
     $email.on("mouseover touchstart", makeAddress);
   }
   
-  
+  buildBalloon(){
+    $(this.selector + " [data-balloon]").balloon({
+      direction: "right",
+      color: "black",
+      marginTop: $(".profile-attribute").height() / 2
+    });
+  }
 }

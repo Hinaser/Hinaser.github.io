@@ -38,18 +38,53 @@ body
 
           .summary
             | Interested in Machine Learning, NLP, Browser extension development, Data business in finance.
-          .location.profile-attribute(title="Location")
+          .location.profile-attribute(title="Location", data-balloon)
             i.fa.fa-map-marker
             | Tokyo, Japan
-          .occupation.profile-attribute(title="occupation")
+            .balloon-contents
+              table.biography
+                thead
+                  tr
+                    td Year
+                    td Location
+                tbody
+                  tr
+                    td 1985
+                    td Born in Yokohama
+                  tr
+                    td 1988
+                    td Relocated to Paris
+                  tr
+                    td 1990
+                    td Relocated to Tokyo
+                  tr
+                    td Now
+                    td Continue living in Tokyo
+          .occupation.profile-attribute(title="occupation", data-balloon)
             i.fa.fa-user
             | Data Engineer
+            .balloon-contents
+              p.
+                In 2008, I started my career as an Application Developer in Fortune 500 American IT company.
+                For 7 years, I engaged myself in various projects in Media & Communication industry.
+              p.
+                After the experience in the major IT company, I followed an opportunity as
+                an IT engineer in automobile component manufacturer, a position to lead
+                IT project as a client.
+              p.
+                In 2016, I challenged a new opportunity as a data engineer, an exciting job
+                to develop and sell financial data as a service to customers.
+
           .organization.profile-attribute(title="organization")
             i.fa.fa-building
             | Publisher
           .graduation.profile-attribute(title="graduation")
             i.fa.fa-graduation-cap
             | Tokyo Institute of Technology
+          .language.profile-attribute(title="language")
+            i.fa.fa-language
+            a(href="?lang=ja", data-lang='ja').lang 日本語
+            a(href="?lang=en", data-lang='en').lang English
 
       .group-with-caption
         .caption Topics
