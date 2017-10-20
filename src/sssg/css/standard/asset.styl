@@ -3,6 +3,8 @@
  *
  * Defines portable styles which is completely independent of any project.
  */
+[data-balloon] > .balloon-contents
+  display none
 
 .balloon
   $balloon-triangle-size = 11px
@@ -14,8 +16,9 @@
   border-radius 4px
   padding 10px
   box-shadow 0 2px 12px rgba(0,0,0,.15)
-  margin-left ($balloon-triangle-left * -1) - ($balloon-triangle-size)
   background-color #fff
+  white-space normal
+  word-break break-word
 
   &::before, &::after
     position absolute
@@ -24,23 +27,31 @@
     content ''
 
   &::before
-    top $balloon-triangle-size * -1
+    top $balloon-triangle-size * -2
     left $balloon-triangle-left
     border-width $balloon-triangle-size
     border-color  transparent transparent rgba(0,0,0,.15) transparent
 
   &::after
-    top ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
+    top ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -2
     left $balloon-triangle-left + sin(45deg)
     border-width ($balloon-triangle-size - sin(45deg))
     border-color  transparent transparent #fff transparent
+
+  &.black
+    background-color #555
+    color #ddd
+    box-shadow 0 2px 12px rgba(80,80,80,.5)
+    &::before
+      border-color transparent transparent rgba(0,0,0,.15) transparent
+    &::after
+      border-color transparent transparent #555 transparent
 
   &.sticky
     margin 0 !important
 
   &.left
     margin-left $balloon-triangle-size
-    margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
 
     &::before, &::after
       border-left none
@@ -55,10 +66,18 @@
       left ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
       border-color transparent #fff transparent transparent
 
+    &.black
+      background-color #555
+      color #ddd
+      box-shadow 0 2px 12px rgba(80,80,80,.5)
+      &::before
+        border-color transparent rgba(0,0,0,.15) transparent transparent
+      &::after
+        border-color transparent #555 transparent transparent
+
   &.right
     margin-left 0
     margin-right $balloon-triangle-size
-    margin-top ($balloon-triangle-left * -1) - ($balloon-triangle-size)
 
     &::before, &::after
       left auto
@@ -73,6 +92,15 @@
       top $balloon-triangle-left + sin(45deg)
       right ($balloon-triangle-size - sin(60deg) * sin(45deg) * 2) * -1
       border-color transparent transparent transparent #fff
+
+    &.black
+      background-color #555
+      color #ddd
+      box-shadow 0 2px 12px rgba(80,80,80,.5)
+      &::before
+        border-color transparent transparent transparent rgba(0,0,0,.15)
+      &::after
+        border-color transparent transparent transparent #555
 
 
 .tags
