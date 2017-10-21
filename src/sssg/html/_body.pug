@@ -52,10 +52,10 @@ body
                     td 1985
                     td Born in Yokohama
                   tr
-                    td 1988
+                    td 1989
                     td Relocated to Paris
                   tr
-                    td 1990
+                    td 1991
                     td Relocated to Tokyo
                   tr
                     td Now
@@ -75,12 +75,19 @@ body
                 In 2016, I challenged a new opportunity as a data engineer, an exciting job
                 to develop and sell financial data as a service to customers.
 
-          .organization.profile-attribute(title="organization")
+          .organization.profile-attribute(title="organization", data-balloon)
             i.fa.fa-building
-            | Publisher
-          .graduation.profile-attribute(title="graduation")
+            | Mass media
+            .balloon-contents
+              p.
+                A publishing company for finance.#[br]
+                Selling books, magazines, financial/company data and advertisement services.
+          .graduation.profile-attribute(title="graduation", data-balloon)
             i.fa.fa-graduation-cap
             | Tokyo Institute of Technology
+            .balloon-contents
+              p.
+                I was granted bachelor in science.
           .language.profile-attribute(title="language")
             i.fa.fa-language
             a(href="?lang=ja", data-lang='ja').lang 日本語

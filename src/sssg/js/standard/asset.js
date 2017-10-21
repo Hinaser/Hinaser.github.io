@@ -66,12 +66,22 @@
               left = self.offset().left - $document.scrollLeft() - arrowMargin + setting.marginLeft;
               break;
             case "right":
-              $wrapper.css({left: 0}); // Prevent contents wrapping before calculating $wrapper.width()
+              $wrapper.css({top: 0, left: 0}); // Prevent contents wrapping before calculating $wrapper.width()
               top = self.offset().top - $document.scrollTop() - arrowMargin + setting.marginTop;
               left = self.offset().left - $document.scrollLeft() - $wrapper.width() - setting.marginLeft;
+  
+              let wrapper_height = $wrapper.height();
+              const remain = (top + wrapper_height) - window.innerHeight;
+              if(remain > 0){
+                top = top - wrapper_height + arrowMargin * 2;
+                $balloon.addClass("upper");
+              }
+              else{
+                $balloon.removeClass("upper");
+              }
               break;
             case "left":
-              $wrapper.css({right: 0}); // Prevent contents wrapping before calculating $wrapper.width()
+              $wrapper.css({top: 0, right: 0}); // Prevent contents wrapping before calculating $wrapper.width()
               top = self.offset().top - $document.scrollTop() - arrowMargin + setting.marginTop;
               left = self.offset().left - $document.scrollLeft() + self.width() - setting.marginLeft;
               break;
