@@ -73,7 +73,7 @@ export default class Sidebar {
   
   buildBalloon(){
     $(this.selector + " [data-balloon]").balloon({
-      direction: "right",
+      placement: "left",
       color: "black",
       marginTop: $(".profile-attribute").height() / 2
     });

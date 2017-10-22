@@ -5,14 +5,14 @@
 (function($){
   $.fn.balloon = function(opts){
     const setting = $.extend({
-      "direction": "right",
+      "placement": "left",
       "color": undefined,
       "marginTop": 0,
       "marginLeft": 0
     }, opts);
     
-    if(!["top","right","left"].includes(setting.direction)){
-      throw new Error("Invalid direction.");
+    if(!["bottom","right","left"].includes(setting.placement)){
+      throw new Error("Invalid placement.");
     }
     if(!["default","black",undefined].includes(setting.color)){
       throw new Error("Invalid color.");
@@ -37,7 +37,7 @@
     
       const $balloon = $("<div>")
         .addClass("balloon")
-        .addClass(setting.direction)
+        .addClass(setting.placement)
         .html($contents.html());
       
       if(setting.color){
@@ -60,12 +60,12 @@
         const calcPosition = function(){
           let top,left;
   
-          switch(setting.direction){
-            case "top":
+          switch(setting.placement){
+            case "bottom":
               top = self.offset().top - $document.scrollTop() + self.height() + setting.marginTop;
               left = self.offset().left - $document.scrollLeft() - arrowMargin + setting.marginLeft;
               break;
-            case "right":
+            case "left":
               $wrapper.css({top: 0, left: 0}); // Prevent contents wrapping before calculating $wrapper.width()
               top = self.offset().top - $document.scrollTop() - arrowMargin + setting.marginTop;
               left = self.offset().left - $document.scrollLeft() - $wrapper.width() - setting.marginLeft;
@@ -80,7 +80,7 @@
                 $balloon.removeClass("upper");
               }
               break;
-            case "left":
+            case "right":
               $wrapper.css({top: 0, right: 0}); // Prevent contents wrapping before calculating $wrapper.width()
               top = self.offset().top - $document.scrollTop() - arrowMargin + setting.marginTop;
               left = self.offset().left - $document.scrollLeft() + self.width() - setting.marginLeft;
