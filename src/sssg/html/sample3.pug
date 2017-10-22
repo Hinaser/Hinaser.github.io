@@ -1,0 +1,9 @@
+extends _layout
+
+block variable
+  -var webRoot = "../.."
+
+
+block article
+  - for(var i=0;i<30;i++)
+    | #{i}#[br]

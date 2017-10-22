@@ -1,27 +1,34 @@
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="initial-scale=1.0")
-    title Hinaser
-    script(src="./-/js/lib.js")
-    link(href="./-/css/lib.css", rel="stylesheet")
-    // uncache
-    script(src="./-/js/main.js")
-    // enduncache
-    // uncache
-    link(href="./-/css/main.css", rel="stylesheet")
-    // enduncache
-  body
-    header
-      | ab
-    main
-      nav
-        - for(var i=0;i<30;i++)
-          | #{i}#[br]
-      article
-        - for(var i=0;i<30;i++)
-          | #{i}#[br]
+extends _layout
 
-    footer
-      | d
+block variable
+  -var webRoot = "."
+
+
+block article
+  .article-header
+    .tags
+      a(href="#")
+        span.tag Finance
+      a(href="#")
+        span.tag Data service
+    h1.article-title To write interesting blog
+    .article-date
+      i.fa.fa-clock-o
+      | October 22, 2017
+  hr
+  .article-contents
+    p.
+      Blogging is interesting. It enables us sharing our thoughts globally and get reaction from various people.
+
+    p.
+      I'm a newbie in writing blog in the internet. At this time, I'd like to think how to write an intersting blog article from various aspects.
+
+    table.bordered
+      thead
+        tr
+          th name
+          th value
+      tbody
+        tr
+          td Preferred char counts for easy reading
+          td 500

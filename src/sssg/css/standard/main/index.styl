@@ -50,28 +50,40 @@ body
       background-color #fff
       transition all ease .3s
 
-    article
-      background-color #fff
-      padding 10px
+    @import "contents.styl"
 
   footer
+    position relative
     margin-top 20px
     margin-bottom 20px
     padding-left 10px
     padding-right 10px
     background-color #fff
+    font-size .9rem
 
+    .sharethis-inline-share-buttons
+      margin-bottom 10px
 
+    table
+      border none
+      width 100%
 
+    .copyright
+      font-family: Times, Times New Roman, Georgia, serif;
+
+    .about-page-generator
+      text-align right
 
 
 .profile
-  $profile-size = 240px
+  $profile-size = 280px
   width $profile-size
+  margin 0 auto
 
   .fa
     margin-right 10px
-    width 14px
+    width 24px
+    text-align center
     color #666
 
   .picture
@@ -103,13 +115,27 @@ body
       &:hover
         animation spinning linear .4s 1
 
-  .occupation,.summary
+  .summary, .location
     margin-top 15px
     white-space normal
 
+  .profile-attribute
+    font-size .95rem
+
   .summary
-    font-size .9em
+    font-size .9rem
     color #aaa
+
+  .language
+    .lang + .lang
+      margin-left 15px
+
+  .balloon
+    max-width 360px
+
+  table.biography thead td
+    border-bottom 1px solid #ddd
+
 
 
 
@@ -135,14 +161,41 @@ body
 
 .headline
   .headline-item
+    font-size .9rem
+
     .headline-title
-      font-size .9em
       line-height 1.2rem
       height 1.2rem
 
     .headline-meta
-      font-size .8em
+      font-size .8rem
       color #b3b3b3
 
+    .headline-readmore-wrap
+      .headline-readmore
+        float right
+        padding 3px 10px
+        border-radius 5px
+        border 1px solid transparent
+        opacity .7
+        transition all .3s ease
+
+        a
+          text-decoration none
+
+        &:hover
+          border-color #ccc
+          background-color #D6EAF8
+          opacity .9
+
+      &::after
+        display table
+        content ''
+        clear both
+
     & + .headline-item
-      margin-top 10px
+      margin-top 4px
+
+
+
+
