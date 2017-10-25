@@ -2,15 +2,17 @@ block path
   - var relativePathToRoot = "."
 
 block variable
-  - var title = "Hinaser"
-  - var lang = "en"
+  -
+    var title = "Hinaser"
+    var lang = "en"
 
-- function url(path){
--   if(relativePathToRoot.slice(-1) !== "/" && path[0] !== "/"){
--     return relativePathToRoot + "/" + path;
--   }
--   return relativePathToRoot + path;
-- }
+-
+  function url(path){
+    if(relativePathToRoot.slice(-1) !== "/" && path[0] !== "/"){
+      return relativePathToRoot + "/" + path;
+    }
+    return relativePathToRoot + path;
+  }
 
 doctype html
 html(lang=lang)
