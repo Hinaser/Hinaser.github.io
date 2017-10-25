@@ -1,7 +1,18 @@
+block path
+  - var relativePathToRoot = "."
+
 block variable
-  - var webRoot = "."
+  - var title = "Hinaser"
+  - var lang = "en"
+
+- function url(path){
+-   if(relativePathToRoot.slice(-1) !== "/" && path[0] !== "/"){
+-     return relativePathToRoot + "/" + path;
+-   }
+-   return relativePathToRoot + path;
+- }
 
 doctype html
-html
+html(lang=lang)
   include _head
   include _body
