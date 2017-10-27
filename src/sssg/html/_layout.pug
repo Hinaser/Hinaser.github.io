@@ -1,5 +1,5 @@
 block path
-  - var relativePathToRoot = "."
+  - var relativePathToResourceRoot = "./-"
 
 block variable
   -
@@ -8,10 +8,10 @@ block variable
 
 -
   function url(path){
-    if(relativePathToRoot.slice(-1) !== "/" && path[0] !== "/"){
-      return relativePathToRoot + "/" + path;
+    if(relativePathToResourceRoot.slice(-1) !== "/" && path[0] !== "/"){
+      return relativePathToResourceRoot + "/" + path;
     }
-    return relativePathToRoot + path;
+    return relativePathToResourceRoot + path;
   }
 
 doctype html
