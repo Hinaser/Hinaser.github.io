@@ -4,7 +4,8 @@ const path = require('path');
 const htmlDir = path.resolve(__dirname + "/../-/contents");
 const srcMiscDir = path.resolve(__dirname + "/sssg/misc");
 const dstMiscDir = path.resolve(__dirname + "/../-/misc");
-const listFileName = "menulist.json";
+const listFileName = "article_list.js";
+const varName = "__articles";
 
 gulp.task("mklist", function(cb){
   return gulp.src([htmlDir + "/**/*.html"], {base: htmlDir})
@@ -120,10 +121,11 @@ function buildArticleList(filename){
   }
   
   function _flush(cb){
-    //console.log(JSON.stringify(json, null, 2));
-    
+    let content = JSON.stringify(json);
+    content = varName + "=" + content + ";";
+
     const file = new File({path: filename});
-    file.contents = new Buffer(JSON.stringify(json));
+    file.contents = new Buffer(content);
     
     this.push(file);
     return cb();
