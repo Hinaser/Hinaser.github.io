@@ -27,7 +27,7 @@ export default class Content {
         <a><span class='tag'>${subtopic}</span>
       </div>
       <h1 class='article-title'>${title}</h1>
-      <div class='article_date'>
+      <div class='article-date'>
       <i class='fa fa-clock-o'></i> ${published_time}</div>
     `;
 
