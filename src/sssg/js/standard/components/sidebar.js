@@ -2,10 +2,11 @@ export default class Sidebar {
   constructor(){
     this.selector = "body > main > nav";
     
-    this.wrapHeadline();
     this.initToggleButton();
     this.buildEmailAddress();
     this.buildBalloon();
+    this.setHeadline();
+    this.wrapHeadline();
   }
   
   wrapHeadline(){
@@ -13,6 +14,68 @@ export default class Sidebar {
     headlineTitle.dotdotdot({
       truncate: "letter",
       watch: true
+    });
+  }
+
+  createHeadlineItem(url, title, description, published_time){
+    let $container = $("<div class='headline-item'>");
+    $container
+      .append(
+        $("<div class='headline-title'>").append(
+          `<a href="${url}" ${description ? 'title='+description:''}">${title}</a>`
+        )
+      )
+      .append(`<div class='headline-meta'>${published_time}</div>`)
+    ;
+
+    return $container;
+  }
+
+  setHeadline(){
+    const articles = $$article_list(); // Comes from external <script> tag.
+    if(!articles){
+      return;
+    }
+
+    const lang = $("html").attr("lang") || "ja";
+    const article_tree = articles[lang];
+
+    const active_topic = $("head > meta[property='article:section']").attr("content");
+    const active_subtopic = $("head > meta[property='article:tag']").attr("content");
+
+    const $topic_container = $("#topic-list").find(".tags");
+
+    Object.keys(article_tree).forEach((val, index) => {
+      let $topic = $(`<a><span class='tag'>${val}</span></a>`);
+
+      if(val === active_topic || (!active_topic && index === 0)){
+        $topic.addClass("active");
+      }
+
+      $topic_container.append($topic);
+    });
+
+    const $subtopic_container = $("#subtopic-list").find(".tags");
+
+    Object.keys(article_tree[active_topic]).forEach((val, index) => {
+      let $subtopic = $(`<a><span class='tag'>${val}</span></a>`);
+
+      if(val === active_subtopic || (!active_subtopic && index === 0)){
+        $subtopic.addClass("active");
+      }
+
+      $subtopic_container.append($subtopic);
+    });
+
+    const $article_container = $("#article-list").find(".headline");
+
+    Object.keys(article_tree[active_topic][active_subtopic]).forEach((v, index) => {
+      let article = article_tree[active_topic][active_subtopic][v];
+      let article_dtime = (new Date(article.published_time))
+        .toLocaleDateString(lang, {year: "numeric", month: "long", day: "numeric"});
+
+      let $headline = this.createHeadlineItem("#", article.title, article.description, article_dtime);
+      $article_container.append($headline);
     });
   }
   

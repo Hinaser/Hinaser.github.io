@@ -122,7 +122,7 @@ function buildArticleList(filename){
   
   function _flush(cb){
     let content = JSON.stringify(json);
-    content = varName + "=" + content + ";";
+    content = Function(`return function $$article_list(){ return ${content}}`).apply().toString();
 
     const file = new File({path: filename});
     file.contents = new Buffer(content);
@@ -130,6 +130,6 @@ function buildArticleList(filename){
     this.push(file);
     return cb();
   }
-  
+
   return through.obj(_transform, _flush);
 }

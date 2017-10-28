@@ -17,4 +17,7 @@ block variable
 doctype html
 html(lang=lang)
   include _head
-  include _body
+  if lang === "ja"
+    include _body_ja
+  else
+    include _body_en
