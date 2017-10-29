@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "sssg serve -s ./sssg -d ../- -r ../",
-    "rebuild": "sssg rebuild -s ./sssg -d ../- -r ../ -e development"
+    "rebuild": "sssg rebuild -s ./sssg -d ../- -r ../ -e development && gulp mklist"
   },
   "keywords": [],
   "author": "Hinaser",

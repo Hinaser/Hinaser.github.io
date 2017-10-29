@@ -7,6 +7,7 @@ export default class Sidebar {
     this.buildBalloon();
     this.setHeadline();
     this.wrapHeadline();
+    this.setupLangButton();
   }
   
   wrapHeadline(){
@@ -55,6 +56,10 @@ export default class Sidebar {
       $topic_container.append($topic);
     });
 
+    if(!article_tree[active_topic]){
+      return;
+    }
+
     const $subtopic_container = $("#subtopic-list").find(".tags");
 
     Object.keys(article_tree[active_topic]).forEach((val, index) => {
@@ -66,6 +71,10 @@ export default class Sidebar {
 
       $subtopic_container.append($subtopic);
     });
+
+    if(!article_tree[active_topic][active_subtopic]){
+      return;
+    }
 
     const $article_container = $("#article-list").find(".headline");
 
@@ -139,6 +148,28 @@ export default class Sidebar {
       placement: "left",
       color: "black",
       marginTop: $(".profile-attribute").height() / 2
+    });
+  }
+
+  setupLangButton(){
+    const $anker = $(".language.profile-attribute a[data-lang]");
+    const current_lang = $("html").attr("lang");
+    const article_id = $("head > meta[name='articleID'][content]").attr("content");
+    const topic = $("head > meta[property='article:section']").attr("content");
+    const subtopic = $("head > meta[property='article:tag']").attr("content");
+    let article = $$article_list()[current_lang][topic][subtopic][article_id];
+    let basedir = /^(.+)[/]([^/]*)$/.exec(article.path)[1];
+
+    $anker.each(function(){
+      const $this = $(this);
+      const target_lang = $this.data("lang");
+
+      try{
+        $this.attr("href", `/${basedir}/${article_id}_${target_lang}.html`);
+      }
+      catch(e){
+        console.error(e);
+      }
     });
   }
 }

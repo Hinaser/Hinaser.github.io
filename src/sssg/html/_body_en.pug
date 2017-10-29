@@ -1,6 +1,6 @@
 body
   header
-    .site-title= title
+    .site-title= site_title
     #sidebar-toggle-button
       i.fa.fa-bars
   main
@@ -90,8 +90,8 @@ body
                 I was granted bachelor in science.
           .language.profile-attribute(title="language")
             i.fa.fa-language
-            a(href="?lang=ja", data-lang='ja').lang 日本語
-            a(href="?lang=en", data-lang='en').lang English
+            a(data-lang='ja').lang 日本語
+            a(data-lang='en').lang English
 
       .group-with-caption#topic-list
         .caption Topics

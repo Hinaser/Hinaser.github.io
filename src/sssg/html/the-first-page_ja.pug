@@ -4,17 +4,17 @@ block path
   - var relativePathToResourceRoot = "../../-"
 
 block variable
-  - var title = "Hinaser"
-  - var lang = "ja"
+  -
+    var site_title = "Hinaser"
+    var lang = "ja"
 
-block meta
-  meta(name="description", content="Blog")
-  meta(name="keywords", content="Hinaser, Hinase, hinaser.github.io")
-  meta(property="og:type", content="article")
-  meta(property="og:title", content="はじめに")
-  meta(property="article:section", content="日常生活")
-  meta(property="article:tag", content="はじめに")
-  meta(property="article:published_time", content="2017-10-26T10:30:00+09:00")
+    article.id = "the-first-page"
+    article.description = "aaa"
+    article.keywords = "hinaser,hinase"
+    article.title = "はじめに"
+    article.topic = "日常生活"
+    article.subtopic = "ああああ"
+    article.create_dtime = "2017-10-26T10:30:00+09:00"
 
 block article
   .article-header
