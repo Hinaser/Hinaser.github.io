@@ -69,7 +69,7 @@ function buildArticleList(filename){
     
     const selectors = [
       "meta[property='og:title']",
-      "meta[property='og:description']",
+      "meta[name='description']",
       "meta[property='article:section']",
       "meta[property='article:tag']",
       "meta[property='article:published_time']",
@@ -91,10 +91,13 @@ function buildArticleList(filename){
       
       switch(property){
         case "og:title": article.title = value; break;
-        case "og:description": article.description = value; break;
         case "article:section": article.section = value; break;
         case "article:tag": article.tag = value; break;
         case "article:published_time": article.published_time = Date.parse(value); break;
+        default:
+          if(element.getAttribute("name") === "description"){
+            article.description = element.getAttribute("content");
+          }
       }
     });
     

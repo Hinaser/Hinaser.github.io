@@ -23,7 +23,7 @@ export default class Sidebar {
     $container
       .append(
         $("<div class='headline-title'>").append(
-          `<a href="${url}" ${description ? 'title='+description:''}">${title}</a>`
+          `<a href="${url}" ${description ? 'title="'+description+'"':''}">${title}</a>`
         )
       )
       .append(`<div class='headline-meta'>${published_time}</div>`)
