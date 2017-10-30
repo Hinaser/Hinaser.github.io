@@ -83,7 +83,7 @@ export default class Sidebar {
       let article_dtime = (new Date(article.published_time))
         .toLocaleDateString(lang, {year: "numeric", month: "long", day: "numeric"});
 
-      let $headline = this.createHeadlineItem("#", article.title, article.description, article_dtime);
+      let $headline = this.createHeadlineItem(article.path, article.title, article.description, article_dtime);
       $article_container.append($headline);
     });
   }
