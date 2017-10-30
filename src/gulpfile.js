@@ -111,7 +111,7 @@ function buildArticleList(filename){
       }
     }.bind(this));
 
-    article.path = path.relative(path.resolve(__dirname + "/.."), file.path);
+    article.path = "/" + path.relative(path.resolve(__dirname + "/.."), file.path);
 
     const section = {};
     section[article.section] = {};
