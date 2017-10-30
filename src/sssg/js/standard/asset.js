@@ -127,6 +127,10 @@
           $wrapper.css("z-index", -1);
         }
       });
+      
+      $wrapper.on("mouseenter", (e) => {
+        e.stopPropagation();
+      });
     });
     
     return this;
