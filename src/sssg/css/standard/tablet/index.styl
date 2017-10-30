@@ -18,7 +18,7 @@
 
       &.fixed-header
         position fixed
-        bottom "calc(100% - %s)" % ($header-height-fixed)
+        bottom "calc(100% - %s - 6px)" % ($header-height-fixed)
         left 0
         right 0
         height $header-height-fixed
@@ -33,7 +33,7 @@
           height $header-height-fixed
 
         #sidebar-toggle-button
-          bottom calc(50% - 3px - 18px)
+          bottom calc(50% - 3px - 15px)
 
         &.scroll-margin
           transition height 0s, bottom 0s
