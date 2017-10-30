@@ -1,6 +1,6 @@
 @media screen and (min-width: 1200px)
   $header-height = 300px
-  $header-height-fixed = 100px
+  $header-height-fixed = 3rem
   $body-width = 1200px
   $nav-width = 380px
 
@@ -12,20 +12,6 @@
       position relative
       transition all ease .3s
 
-      h1
-        font-size 6em
-        color #fff
-        font-weight bold
-        padding-left 40px
-
-      .profile
-        position absolute
-        bottom 0
-        right 0
-        padding 20px
-        color #fff
-        font-size 2em
-
       &.fixed-header
         position fixed
         bottom "calc(100% - %s)" % ($header-height-fixed)
@@ -35,9 +21,13 @@
         margin 0
         z-index 2
         border-width 0 0 6px 0
+        opacity .9
 
         .site-title
           left calc(50% - 600px + 20px)
+          font-size 2rem
+          line-height $header-height-fixed
+          height $header-height-fixed
 
         &::before, &::after
           opacity 1

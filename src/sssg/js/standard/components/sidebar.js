@@ -163,13 +163,7 @@ export default class Sidebar {
     $anker.each(function(){
       const $this = $(this);
       const target_lang = $this.data("lang");
-
-      try{
-        $this.attr("href", `/${basedir}/${article_id}_${target_lang}.html`);
-      }
-      catch(e){
-        console.error(e);
-      }
+      $this.attr("href", `/${basedir}/${article_id}_${target_lang}.html`);
     });
   }
 }

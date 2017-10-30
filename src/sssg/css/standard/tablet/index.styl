@@ -1,6 +1,6 @@
 @media screen and (min-width 800px) and (max-width 1199px)
   $header-height = 300px
-  $header-height-fixed = 100px
+  $header-height-fixed = 3rem
   $body-width = 800px
   $nav-width = 380px
 
@@ -25,6 +25,15 @@
         margin 0
         z-index 2
         border-width 0 0 6px 0
+        opacity .9
+
+        .site-title
+          font-size 2rem
+          line-height $header-height-fixed
+          height $header-height-fixed
+
+        #sidebar-toggle-button
+          bottom calc(50% - 3px - 18px)
 
         &.scroll-margin
           transition height 0s, bottom 0s
