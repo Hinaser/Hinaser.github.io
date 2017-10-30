@@ -5,7 +5,6 @@ body
   header
     margin-top 20px
     margin-bottom 20px
-    background-color #fff
     border-radius 3px
     box-sizing content-box
     border 6px solid #fff
@@ -13,6 +12,27 @@ body
     position relative
     background-image url(../image/logo.jpg)
     background-attachment fixed
+    background-position 50% 0
+    background-repeat no-repeat
+    background-color rgba(33,33,33,1)
+    
+    &::before, &::after
+      display block
+      content ''
+      position absolute
+      top 0
+      bottom 0
+      opacity 0
+    
+    &::before
+      left calc(50% - 700px)
+      right calc(50% + 600px)
+      background linear-gradient(to left, rgba(33,33,33,0), rgba(33,33,33,1))
+
+    &::after
+      right calc(50% - 700px)
+      left calc(50% + 600px)
+      background linear-gradient(to right, rgba(33,33,33,0), rgba(33,33,33,1))
 
     .site-title
       position absolute

@@ -8,7 +8,8 @@
       "placement": "left",
       "color": undefined,
       "marginTop": 0,
-      "marginLeft": 0
+      "marginLeft": 0,
+      "opacity": 1
     }, opts);
     
     if(!["bottom","right","left"].includes(setting.placement)){
@@ -28,17 +29,22 @@
     let $document = $(document);
   
     this.each(function(){
-      let $t = $(this);
-      let $contents = $t.find(".balloon-contents");
+      let $this = $(this);
+      let $contents = $this.find(".balloon-contents");
+      let content;
       
       if(!$contents || $contents.length < 1){
-        return;
+        if(!(content = $this.data('balloon')))
+          return;
+      }
+      else{
+        content = $contents.html();
       }
     
       const $balloon = $("<div>")
         .addClass("balloon")
         .addClass(setting.placement)
-        .html($contents.html());
+        .html(content);
       
       if(setting.color){
         $balloon.addClass(setting.color);
@@ -47,14 +53,14 @@
       const $wrapper = $("<div>").css(wrapperInitialStyle);
     
       $wrapper.append($balloon);
-      $t.append($wrapper);
+      $this.append($wrapper);
       $contents.remove();
   
       let popUpStatus = 0; // 0: hidden, 1: visible
       const arrowMargin = 27; // See asset.styl. $balloon-triangle-size = 11px, $balloon-triangle-left = 16px
   
-      $t.on("mouseenter", (e) => {
-        let self = $t;
+      $this.on("mouseenter", (e) => {
+        let self = $this;
         let zIndex = 9999;
         
         const calcPosition = function(){
@@ -83,7 +89,7 @@
             case "right":
               $wrapper.css({top: 0, right: 0}); // Prevent contents wrapping before calculating $wrapper.width()
               top = self.offset().top - $document.scrollTop() - arrowMargin + setting.marginTop;
-              left = self.offset().left - $document.scrollLeft() + self.width() - setting.marginLeft;
+              left = self.offset().left - $document.scrollLeft() + self.width() + setting.marginLeft;
               break;
           }
   
@@ -97,7 +103,7 @@
             "top": position.top,
             "left": position.left,
             "z-index": zIndex,
-            "opacity": 1
+            "opacity": setting.opacity
           });
         
         popUpStatus = 1;
@@ -112,7 +118,7 @@
   
       });
       
-      $t.on("mouseleave", (e) => {
+      $this.on("mouseleave", (e) => {
         $wrapper.css({
           "opacity": 0
         });
@@ -122,10 +128,14 @@
         $(window).off("scroll.balloon");
       });
   
-      $t.on("transitionend webkitTransitionEnd oTransitionEnd", (e) => {
+      $this.on("transitionend webkitTransitionEnd oTransitionEnd", (e) => {
         if(popUpStatus === 0){
           $wrapper.css("z-index", -1);
         }
+      });
+      
+      $wrapper.on("mouseenter", (e) => {
+        e.stopPropagation();
       });
     });
     

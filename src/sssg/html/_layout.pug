@@ -1,7 +1,28 @@
+// Utilities , default values
+-
+  function url(path){
+    if(relativePathToResourceRoot.slice(-1) !== "/" && path[0] !== "/"){
+      return relativePathToResourceRoot + "/" + path;
+    }
+
+    return relativePathToResourceRoot + path;
+  }
+
+  var default_site_title = "Hinaser"
+  var default_lang = "en"
+  var article = {}, site_title, lang
+
+block path
+  - var relativePathToResourceRoot = "./-"
+
 block variable
-  - var webRoot = "."
+  - site_title = default_site_title
+  - lang = default_lang
 
 doctype html
-html
+html(lang=lang)
   include _head
-  include _body
+  if lang === "ja"
+    include _body_ja
+  else
+    include _body_en

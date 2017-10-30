@@ -1,34 +1,4 @@
-extends _layout
+extends introduction_en
 
-block variable
-  -var webRoot = "."
-
-
-block article
-  .article-header
-    .tags
-      a(href="#")
-        span.tag Finance
-      a(href="#")
-        span.tag Data service
-    h1.article-title To write interesting blog
-    .article-date
-      i.fa.fa-clock-o
-      | October 22, 2017
-  hr
-  .article-contents
-    p.
-      Blogging is interesting. It enables us sharing our thoughts globally and get reaction from various people.
-
-    p.
-      I'm a newbie in writing blog in the internet. At this time, I'd like to think how to write an intersting blog article from various aspects.
-
-    table.bordered
-      thead
-        tr
-          th name
-          th value
-      tbody
-        tr
-          td Preferred char counts for easy reading
-          td 500
+block path
+  - var relativePathToResourceRoot = "./-"

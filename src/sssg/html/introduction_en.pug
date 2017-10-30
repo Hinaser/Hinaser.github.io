@@ -1,0 +1,25 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var site_title = "Hinaser"
+    var lang = "en"
+
+    article.id = "introduction"
+    article.description = "The first created page"
+    article.keywords = "hinaser,hinase,hinaser.github.io"
+    article.title = "Hello world"
+    article.topic = "Daily Life"
+    article.subtopic = "Profile"
+    article.create_dtime = "2017-10-30T22:46:51.376+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      Will write soon.
+
