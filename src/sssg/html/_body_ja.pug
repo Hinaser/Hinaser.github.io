@@ -37,58 +37,30 @@ body
                   path(d="M4.2218,19.7782C6.2124,21.7688,8.9624,23,12,23c6.0751,0,11,-4.9249,11,-11c0,-3.0376,-1.2312,-5.7876,-3.2218,-7.7782L4.2218,19.7782z", fill="#231F20", opacity="0.1")
 
           .summary
-            | 機械学習、自然言語処理、ブラウザアドオン開発、金融データビジネスに興味があります。
-          .location.profile-attribute(title="Location", data-balloon)
+            | 機械学習、自然言語処理、ブラウザアドオン開発、金融データビジネスに興味あり。ビットコインも最近始める。
+          .location.profile-attribute(data-balloon)
             i.fa.fa-map-marker
-            | 東京
-            .balloon-contents
-              table.biography
-                thead
-                  tr
-                    td 年
-                    td 場所
-                tbody
-                  tr
-                    td 1985
-                    td 横浜にて生まれる
-                  tr
-                    td 1989
-                    td パリに引っ越し
-                  tr
-                    td 1991
-                    td 東京に引っ越し
-                  tr
-                    td 現在
-                    td 東京で生活を続けています
-          .occupation.profile-attribute(title="occupation", data-balloon)
+            | 東京、日本
+            .balloon-contents.
+              横浜 ==> パリ ==> 東京
+          .occupation.profile-attribute(data-balloon)
             i.fa.fa-user
             | データエンジニア
-            .balloon-contents
-              p.
-                In 2008, I started my career as an Application Developer in Fortune 500 American IT company.
-                For 7 years, I engaged myself in various projects in Media & Communication industry.
-              p.
-                After the experience in the major IT company, I followed an opportunity as
-                an IT engineer in automobile component manufacturer, a position to lead
-                IT project as a client.
-              p.
-                In 2016, I challenged a new opportunity as a data engineer, an exciting job
-                to develop and sell financial data as a service to customers.
+            .balloon-contents.
+              2008年に新卒で米系IT企業入社。7年間ほど通信業界の様々なプロジェクトに従事。#[br]
+              IT企業での開発経験を元に自動車部品メーカーのIT部門に転職。
+              ベンダー側からユーザ側へとポジションチェンジ。#[br]
+              2016年データエンジニアとしてマスメディアへ。各種データを開発、商品化する仕事をしてます。
 
-          .organization.profile-attribute(title="organization", data-balloon)
+          .organization.profile-attribute(data-balloon)
             i.fa.fa-building
-            | マスコミ
-            .balloon-contents
-              p.
-                A publishing company for finance.#[br]
-                Selling books, magazines, financial/company data and advertisement services.
-          .graduation.profile-attribute(title="graduation", data-balloon)
+            | マスメディア
+            .balloon-contents.
+              書籍、雑誌、種々のデータを販売。
+          .graduation.profile-attribute(data-balloon='よく四川で担々麺食ってました。大都会中の大都会')
             i.fa.fa-graduation-cap
-            | 東京工業大学
-            .balloon-contents
-              p.
-                I was granted bachelor in science.
-          .language.profile-attribute(title="language")
+            | 学士(理学)
+          .language.profile-attribute
             i.fa.fa-language
             a(data-lang='ja').lang 日本語
             a(data-lang='en').lang English

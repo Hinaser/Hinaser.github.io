@@ -239,17 +239,25 @@ export default class Sidebar {
     const $anchor = $(".language.profile-attribute a[data-lang]");
     const current_lang = $("html").attr("lang");
     const article_id = $("head > meta[name='articleID'][content]").attr("content");
-    const topic = $("head > meta[property='article:section']").attr("content");
-    const subtopic = $("head > meta[property='article:tag']").attr("content");
+    const articles = $$article_list();
 
     $anchor.each(function(){
       const $this = $(this);
       const target_lang = $this.data("lang");
       try {
-        const article = $$article_list()[target_lang][topic][subtopic][article_id];
-        $this.attr("href", article.path);
+        return Object.keys(articles[target_lang]).some((topic) => {
+          return Object.keys(articles[target_lang][topic]).some((subtopic) => {
+            return Object.keys(articles[target_lang][topic][subtopic]).some((article) => {
+              if(article === article_id){
+                $this.attr("href", articles[target_lang][topic][subtopic][article].path);
+                return true;
+              }
+            });
+          });
+        });
       }
-      catch(e){}
+      catch(e){
+      }
     });
   }
 }
