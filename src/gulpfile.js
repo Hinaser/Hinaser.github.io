@@ -24,6 +24,7 @@ gulp.task("mklist", function(cb){
 const through = require('through2');
 const File = require('vinyl');
 const {JSDOM} = require('jsdom');
+const extend = require('object-extend');
 
 /**
  * Parse html files to extract article title, published time, section, tag etc.
@@ -121,7 +122,7 @@ function buildArticleList(filename){
     delete article.section;
     delete article.tag;
   
-    Object.assign(json[lang], section);
+    json[lang] = extend(json[lang], section);
     return cb();
   }
   
@@ -138,3 +139,4 @@ function buildArticleList(filename){
 
   return through.obj(_transform, _flush);
 }
+
