@@ -36,11 +36,11 @@ export default class Content {
     $header.html(header_string);
     const $article_date = $header.find('.article-date');
     $article_date.balloon({
-      placement: "right",
+      placement: "bottom",
       color: "black",
       marginTop: $($article_date).height()/2,
-      marginLeft: 10,
-      opacity: .7
+      marginLeft: 7,
+      opacity: .85
     });
   }
   

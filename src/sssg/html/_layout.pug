@@ -11,13 +11,13 @@
   var default_site_title = "Hinaser"
   var default_lang = "en"
   var article = {}, site_title, lang
+  site_title = default_site_title
+  lang = default_lang
 
 block path
   - var relativePathToResourceRoot = "./-"
 
 block variable
-  - site_title = default_site_title
-  - lang = default_lang
 
 doctype html
 html(lang=lang)
