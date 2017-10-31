@@ -1,0 +1,40 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var lang = "ja"
+
+    article.id = "home"
+    article.description = "一番最初の記事。"
+    article.keywords = "hinaser,hinase,hinaser.github.io"
+    article.title = "こんにちは"
+    article.topic = "日常生活"
+    article.subtopic = "プロフィール"
+    article.create_dtime = "2017-10-30T22:46:51.376+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      都内の会社でデータエンジニアをやっているアラサー男のメモ書き集です。#[br]
+      勉強して覚えたことや技術メモ、趣味の話などぼそぼそと書き連ねていこうと思います。
+
+    h6 略歴
+    p.
+      1985年生まれで出生は横浜市。そのためかベイスターズファン。父親の留学に伴って3歳ごろから2年半ほどパリで生活。
+      バブル崩壊直後の1991年に日本に戻ってきてからずっと東京で生活。#[br]
+      国立市という大学通りという桜並木が有名な静かな街で高校まで過ごす。
+      理系の大学に進学し、1K6畳の狭いアパートで悶々とした生活を4年間送る。#[br]
+      研究室という独特で閉鎖的な空間にこれ以上いるのがキツく感じ、理系単科大学では少数派な
+      学部就職。その後二回転職して現職に至る。
+
+    h6 趣味
+    p.
+      プログラミング、メジャーリーグ、PCゲーム。昔は登山やサイクリングが趣味だったが、最近はあまりやっていない。
+      メジャーリーグ現地観戦のため定期的に海外旅行にも行ってます。洋ゲーばかりやっていたため
+      英語が次第にスラスラ読めるように。
+

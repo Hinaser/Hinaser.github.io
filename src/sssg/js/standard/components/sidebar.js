@@ -71,9 +71,13 @@ export default class Sidebar {
     const $topic_container = $("#topic-list").find(".tags");
     const $subtopic_container = $("#subtopic-list").find(".tags");
     const $article_container = $("#article-list").find(".headline");
-    
+  
     /**
-     * Setup topic section
+     * Get jQuery elements list of topics
+     *
+     * @param {Object} list - This should be $$article_list()[lang]
+     * @param {string} active_topic - Text of the topic
+     * @returns {*}
      */
     const topics = (list, active_topic) => {
       const $wrapper = $("<div>");
@@ -89,9 +93,14 @@ export default class Sidebar {
       
       return $wrapper.children();
     };
-
+  
     /**
-     * Setup sub topic section
+     * Get jQuery elements list of subtopics
+     *
+     * @param {Object} list - This should be $$article_list()[lang]
+     * @param {string} topic - Text of the topic
+     * @param {string} active_subtopic - Text of the subtopic
+     * @returns {*}
      */
     const subTopics = (list, topic, active_subtopic) => {
       const $wrapper = $("<div>");
@@ -107,9 +116,14 @@ export default class Sidebar {
       
       return $wrapper.children();
     };
-
+  
     /**
-     * Setup headline area
+     * Get jQuery elements list of headline
+     *
+     * @param {Object} list - This should be $$article_list()[lang]
+     * @param {string} topic - Text of the topic
+     * @param {string} subtopic - Text of the subtopic
+     * @returns {*}
      */
     const headlines = (list, topic, subtopic) => {
       const $wrapper = $("<div>");
@@ -125,39 +139,55 @@ export default class Sidebar {
       return $wrapper.children();
     };
   
-    $topic_container.append(topics(article_tree, active_topic));
-    $subtopic_container.append(subTopics(article_tree, active_topic, active_subtopic));
-    $article_container.append(headlines(article_tree, active_topic, active_subtopic));
+    /**
+     * When subtopic is clicked, headlines associated with the subtopic will be
+     * shown on headline area.
+     *
+     * @param {Event} e
+     */
+    const onClickSubtopic = function(e){
+      e.preventDefault();
+      const $this = $(this);
+      const topic = $topic_container.find("a.active").text();
+      const subtopic = $this.find("span.tag").text();
     
-    $topic_container.find("a").on("click", function(e){
+      $subtopic_container.find("a.active").removeClass("active");
+      $this.addClass("active");
+    
+      $article_container.empty();
+      $article_container.append(headlines(article_tree, topic, subtopic));
+    };
+  
+    /**
+     * When topic is clicked, subtopics associated with the topic will be
+     * shown on headline area.
+     *
+     * @param {Event} e
+     */
+    const onClickTopic = function(e){
       e.preventDefault();
       const $this = $(this);
       const topic = $this.find("span.tag").text();
   
       $topic_container.find("a.active").removeClass("active");
       $this.addClass("active");
-      
+  
       $subtopic_container.empty();
       $subtopic_container.append(subTopics(article_tree, topic));
-      
+      $subtopic_container.find("a").on("click", onClickSubtopic);
+  
       const subtopic = $subtopic_container.find("a.active").text();
-      
+  
       $article_container.empty();
       $article_container.append(headlines(article_tree, topic, subtopic));
-    });
-  
-    $subtopic_container.find("a").on("click", function(e){
-      e.preventDefault();
-      const $this = $(this);
-      const topic = $topic_container.find("a.active").text();
-      const subtopic = $this.find("span.tag").text();
-  
-      $subtopic_container.find("a.active").removeClass("active");
-      $this.addClass("active");
+    };
     
-      $article_container.empty();
-      $article_container.append(headlines(article_tree, topic, subtopic));
-    });
+    $topic_container.append(topics(article_tree, active_topic));
+    $subtopic_container.append(subTopics(article_tree, active_topic, active_subtopic));
+    $article_container.append(headlines(article_tree, active_topic, active_subtopic));
+    
+    $topic_container.find("a").on("click", onClickTopic);
+    $subtopic_container.find("a").on("click", onClickSubtopic);
   }
   
   /**
