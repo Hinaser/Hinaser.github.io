@@ -203,7 +203,7 @@ export default class Sidebar {
       // Do nothing if outside of sidebar has been clicked.
       // However, if screen size is for mobile, close sidebar wherever is clicked.
       if(!window.matchMedia("(max-width: 799px)").matches &&
-        $sidebar.is(e.target) || $sidebar.has(e.target).length > 0){
+        ($sidebar.is(e.target) || $sidebar.has(e.target).length > 0)){
         return;
       }
   
