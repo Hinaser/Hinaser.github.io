@@ -198,14 +198,25 @@ export default class Sidebar {
     let $sidebar = $(this.selector);
     let $tags = $sidebar.find(".tags");
     let $button = $("#sidebar-toggle-button");
-    
+  
+    /**
+     * Close sidebar when entire window except for sidebar has been clicked.
+     * @param {Event} e
+     */
     const closeSidebar = (e) => {
-      // Do nothing if outside of sidebar has been clicked.
-      // However, if screen size is for mobile, close sidebar wherever is clicked.
-      if(!window.matchMedia("(max-width: 799px)").matches &&
-        ($sidebar.is(e.target) || $sidebar.has(e.target).length > 0)){
+      // On mobile screen, there are few spaces outside sidebar.
+      // So on the screen size, clicking even sidebar should close it.
+      if(window.matchMedia("(max-width: 799px)").matches){
+        // When buttons have been clicked, don't close sidebar
+        const $sidebar_buttons = $sidebar.find("a, button");
+        if($sidebar_buttons.is(e.target) || $sidebar_buttons.has(e.target).length > 0){
+          return;
+        }
+      }
+      else if($sidebar.is(e.target) || $sidebar.has(e.target).length > 0){
         return;
       }
+      
   
       $sidebar.removeClass("visible");
     };
