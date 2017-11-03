@@ -12,6 +12,14 @@
       position relative
       transition all ease .3s
 
+      &::before, &::after
+        display block
+        content ''
+        position absolute
+        top 0
+        bottom 0
+        opacity 0
+
       &.fixed-header
         position fixed
         bottom "calc(100% - %s - 6px)" % ($header-height-fixed)
@@ -22,6 +30,16 @@
         z-index 2
         border-width 0 0 6px 0
         opacity .9
+
+        &::before
+          left calc(50% - 700px)
+          right calc(50% + 600px)
+          background linear-gradient(to left, rgba(33,33,33,0), rgba(33,33,33,1))
+
+        &::after
+          right calc(50% - 700px)
+          left calc(50% + 600px)
+          background linear-gradient(to right, rgba(33,33,33,0), rgba(33,33,33,1))
 
         .site-title
           left calc(50% - 600px + 20px)
