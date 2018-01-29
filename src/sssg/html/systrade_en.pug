@@ -1,0 +1,27 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var lang = "en"
+
+    article.id = "systrade"
+    article.description = "Programmable Trading for Bitcoin"
+    article.keywords = "hinaser,hinase,hinaser.github.io"
+    article.title = "SysTrade, for programmable bitcoin trade"
+    article.topic = "Bitcoin"
+    article.subtopic = "SysTrade"
+    article.create_dtime = "2018-01-29T00:00:00.000+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      Hello, thank you to have attention.#[br]
+      SysTrade is a bitcoin FX trading app working on bitFlyer API.
+
+    p
+      a(href='https://hinaser.github.io/systrade/index.html') https://hinaser.github.io/systrade-web/index.html
