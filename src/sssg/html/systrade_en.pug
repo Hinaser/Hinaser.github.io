@@ -1,0 +1,42 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var lang = "en"
+
+    article.id = "systrade"
+    article.description = "Programmable Trading for Bitcoin"
+    article.keywords = "hinaser,hinase,hinaser.github.io"
+    article.title = "SysTrade, for programmable bitcoin trade"
+    article.topic = "Bitcoin"
+    article.subtopic = "SysTrade"
+    article.create_dtime = "2018-01-29T00:00:00.000+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      Hello, thank you to have attention.#[br]
+      SysTrade is a bitcoin FX trading app working on bitFlyer API.
+
+    p
+      a(href='https://hinaser.github.io/systrade/index.html', style="text-decoration: line-through") https://hinaser.github.io/systrade-web/index.html
+      br
+      | I'm preparing to make the app public. Please wait.
+
+    p
+      a(href=url("image/systrade/screenshot-programmable-trade.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-programmable-trade.png"), style="max-width: 90%")
+    p
+      a(href=url("image/systrade/screenshot-result-of-order-history.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-result-of-order-history.png"), style="max-width: 90%")
+    p
+      a(href=url("image/systrade/screenshot-mobile-positions.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-mobile-positions.png"), style="max-width: 90%")
+    p
+      a(href=url("image/systrade/screenshot-mobile-executions.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-mobile-executions.png"), style="max-width: 90%")

@@ -3,6 +3,7 @@ export default class Content {
     this.selector = "body > main > article";
 
     this.buildArticleHeader();
+    this.initializeNicescroll();
   }
 
   buildArticleHeader(){
@@ -42,6 +43,11 @@ export default class Content {
       marginLeft: 7,
       opacity: .85
     });
+  }
+  
+  initializeNicescroll(){
+    const $content = $(this.selector).find(".article-contents");
+    $content.niceScroll();
   }
   
   /**

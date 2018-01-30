@@ -1,0 +1,28 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var lang = "ja"
+
+    article.id = "systrade-extension"
+    article.description = "板情報、約定履歴の更新を高速化するブラウザ拡張"
+    article.keywords = "hinaser,hinase,hinaser.github.io"
+    article.title = "ブラウザ拡張"
+    article.topic = "ビットコイン"
+    article.subtopic = "SysTrade"
+    article.create_dtime = "2018-01-30T00:00:00.000+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      SysTradeの板情報、最新約定履歴を高速で取得できるようになるブラウザー拡張です。#[br]
+      現在のところFirefox/Chromeでのみ動作します。
+      WebExtensionをサポートしているブラウザなら動作するはずですが、私の方で動作確認はしていません。
+
+    p
+      img(src=url("image/systrade/screenshot-addon.png"))

@@ -1,0 +1,29 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var lang = "en"
+
+    article.id = "systrade-extension"
+    article.description = "Browser extension to improve update frequency of board/executions"
+    article.keywords = "hinaser,hinase,hinaser.github.io,WebExtension,BitCoin,BTC, System trade"
+    article.title = "Browser Add-On"
+    article.topic = "Bitcoin"
+    article.subtopic = "SysTrade"
+    article.create_dtime = "2018-01-30T00:00:00.000+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      This is a browser addon which enables to improve update frequency of
+      board/execution history.#[br]
+      Currently, this addon works only Firefox and Chrome.
+      It may work browsers which supports WebExtension, but I haven't check it yet.
+
+    p
+      img(src=url("image/systrade/screenshot-addon.png"))

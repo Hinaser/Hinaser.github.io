@@ -1,0 +1,42 @@
+extends _layout
+
+block path
+  - var relativePathToResourceRoot = "../../-"
+
+block variable
+  -
+    var lang = "ja"
+
+    article.id = "systrade"
+    article.description = "自動ビットコイン取引アプリ"
+    article.keywords = "hinaser,hinase,hinaser.github.io"
+    article.title = "SysTrade, ビットコインの機械取引"
+    article.topic = "ビットコイン"
+    article.subtopic = "SysTrade"
+    article.create_dtime = "2018-01-29T00:00:00.000+0900"
+
+block article
+  .article-header
+  hr
+  .article-contents
+    p.
+      こんにちは、ご興味をお持ちいただきありがとうございます。#[br]
+      SysTradeはbitFlyer APIを利用したビットコインFX取引アプリです。
+
+    p
+      a(href='https://hinaser.github.io/systrade/index.html', style="text-decoration: line-through") https://hinaser.github.io/systrade-web/index.html
+      br
+      | 現在公開準備中です。少々お待ちください。
+
+    p
+      a(href=url("image/systrade/screenshot-programmable-trade.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-programmable-trade.png"), style="max-width: 90%")
+    p
+      a(href=url("image/systrade/screenshot-result-of-order-history.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-result-of-order-history.png"), style="max-width: 90%")
+    p
+      a(href=url("image/systrade/screenshot-mobile-positions.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-mobile-positions.png"), style="max-width: 90%")
+    p
+      a(href=url("image/systrade/screenshot-mobile-executions.png"), target="_blank")
+        img(src=url("image/systrade/screenshot-mobile-executions.png"), style="max-width: 90%")
