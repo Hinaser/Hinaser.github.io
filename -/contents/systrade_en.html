@@ -1,23 +1,23 @@
 
 <!-- Utilities , default values--><!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0">
     <title>Hinaser</title>
     <meta name="author" content="Hinaser">
     <meta name="generator" content="SSSG - https://www.npmjs.com/package/sssg">
-    <meta name="articleID" content="systrade-extension">
+    <meta name="articleID" content="systrade">
     <meta name="keywords" content="hinaser,hinase,hinaser.github.io">
-    <meta name="description" content="板情報、約定履歴の更新を高速化するブラウザ拡張">
+    <meta name="description" content="Programmable Trading for Bitcoin">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="ブラウザ拡張">
-    <meta property="article:section" content="ビットコイン">
+    <meta property="og:title" content="SysTrade, for programmable bitcoin trade">
+    <meta property="article:section" content="Bitcoin">
     <meta property="article:tag" content="SysTrade">
-    <meta property="article:published_time" content="2018-01-30T00:00:00.000+0900">
+    <meta property="article:published_time" content="2018-01-29T00:00:00.000+0900">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ブラウザ拡張">
-    <meta name="twitter:description" content="板情報、約定履歴の更新を高速化するブラウザ拡張">
+    <meta name="twitter:title" content="SysTrade, for programmable bitcoin trade">
+    <meta name="twitter:description" content="Programmable Trading for Bitcoin">
     <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/roundedmplus1c.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Asap:4000,700">
     <link href="../../-/css/lib.css" rel="stylesheet">
@@ -66,35 +66,47 @@
                     <path d="M4.2218,19.7782C6.2124,21.7688,8.9624,23,12,23c6.0751,0,11,-4.9249,11,-11c0,-3.0376,-1.2312,-5.7876,-3.2218,-7.7782L4.2218,19.7782z" fill="#231F20" opacity="0.1"></path>
                   </g>
                 </svg></a></div>
-            <div class="summary">機械学習、ソフトウェア開発、金融データビジネス。ビットコインも最近始める。IT,野球が趣味。</div>
-            <div class="location profile-attribute" data-balloon><i class="fa fa-map-marker"></i>東京、日本
-              <div class="balloon-contents">横浜 ==> パリ ==> 東京</div>
+            <div class="summary">Interested in Machine Learning, NLP, Browser extension development, Data business in finance.</div>
+            <div class="location profile-attribute" data-balloon><i class="fa fa-map-marker"></i>Tokyo, Japan
+              <div class="balloon-contents">Yokohama ==> Paris ==> Tokyo</div>
             </div>
-            <div class="occupation profile-attribute" data-balloon><i class="fa fa-user"></i>データエンジニア
-              <div class="balloon-contents">2008年に新卒で米系IT企業入社。7年間ほど通信業界の様々なプロジェクトに従事。<br>
-                IT企業での開発経験を元に自動車部品メーカーのIT部門に転職。
-                ベンダー側からユーザ側へとポジションチェンジ。<br>
-                2016年データエンジニアとしてマスメディアへ。各種データを開発、商品化する仕事をしてます。
-                
+            <div class="occupation profile-attribute" data-balloon><i class="fa fa-user"></i>Data Engineer
+              <div class="balloon-contents">
+                <p>
+                  In 2008, I started my career as an Application Developer at an American IT company.
+                  For 7 years, I joined in various projects in Media & Communication industry.
+                </p>
+                <p>
+                  After the experience in the IT company, I followed an opportunity as
+                  an IT engineer in automobile component manufacturer.
+                  Moved myself from IT vendor to IT shopper.
+                </p>
+                <p>
+                  In 2016, I headed into a new opportunity as a data engineer, a job
+                  to develop and sell financial data as a service to customers in financial industry.
+                  
+                </p>
               </div>
             </div>
-            <div class="organization profile-attribute" data-balloon><i class="fa fa-building"></i>出版社
-              <div class="balloon-contents">書籍、雑誌、種々のデータを販売。</div>
+            <div class="organization profile-attribute" data-balloon><i class="fa fa-building"></i>Mass media
+              <div class="balloon-contents">A media.<br>
+                Selling books, magazines, data.
+              </div>
             </div>
-            <div class="graduation profile-attribute" data-balloon="情報専攻でなかったはずが、ITの世界にどっぷり。"><i class="fa fa-graduation-cap"></i>学士(理学)</div>
+            <div class="graduation profile-attribute" data-balloon><i class="fa fa-graduation-cap"></i>Bachelor of Science.</div>
             <div class="language profile-attribute"><i class="fa fa-language"></i><a class="lang" data-lang="ja">日本語</a><a class="lang" data-lang="en">English</a></div>
           </div>
         </div>
         <div class="group-with-caption" id="topic-list">
-          <div class="caption">トピック</div>
+          <div class="caption">Topics</div>
           <div class="tags"></div>
         </div>
         <div class="group-with-caption" id="subtopic-list">
-          <div class="caption">サブトピック</div>
+          <div class="caption">Sub topics</div>
           <div class="tags"></div>
         </div>
         <div class="group-with-caption" id="article-list">
-          <div class="caption">記事</div>
+          <div class="caption">Articles</div>
           <div class="headline"></div>
         </div>
       </nav>
@@ -102,12 +114,15 @@
         <div class="article-header"></div>
         <hr>
         <div class="article-contents">
-          <p>SysTradeの板情報、最新約定履歴を高速で取得できるようになるブラウザー拡張です。<br>
-            現在のところFirefox/Chromeでのみ動作します。
-            WebExtensionをサポートしているブラウザなら動作するはずですが、私の方で動作確認はしていません。
+          <p>Hello, thank you to have attention.<br>
+            SysTrade is a bitcoin FX trading app working on bitFlyer API.
             
           </p>
-          <p><img src="../../-/image/systrade/screenshot-addon.png"></p>
+          <p><a href="https://hinaser.github.io/systrade/index.html" style="text-decoration: line-through;">https://hinaser.github.io/systrade-web/index.html</a><br>I'm preparing to make the app public. Please wait.</p>
+          <p><a href="../../-/image/systrade/screenshot-programmable-trade.png" target="_blank"><img src="../../-/image/systrade/screenshot-programmable-trade.png" style="max-width: 90%;"></a></p>
+          <p><a href="../../-/image/systrade/screenshot-result-of-order-history.png" target="_blank"><img src="../../-/image/systrade/screenshot-result-of-order-history.png" style="max-width: 90%;"></a></p>
+          <p><a href="../../-/image/systrade/screenshot-mobile-positions.png" target="_blank"><img src="../../-/image/systrade/screenshot-mobile-positions.png" style="max-width: 90%;"></a></p>
+          <p><a href="../../-/image/systrade/screenshot-mobile-executions.png" target="_blank"><img src="../../-/image/systrade/screenshot-mobile-executions.png" style="max-width: 90%;"></a></p>
         </div>
       </article>
     </main>
