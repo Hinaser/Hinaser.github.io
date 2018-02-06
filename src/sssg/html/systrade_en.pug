@@ -21,22 +21,28 @@ block article
   .article-contents
     p.
       Hello, thank you to have attention.#[br]
-      SysTrade is a bitcoin FX trading app working on bitFlyer API.
+      SysTrade is a bitcoin FX trading app working upon bitFlyer API.#[br]
+      Currently alpha version is available through the url below:
+    p
+      a(href='https://hinaser.github.io/systrade-web/app') https://hinaser.github.io/systrade-web/app
+
+    | Currently implementing:
+    ul
+      li Real BTC FX trading by bitFlyer Lightning API key
+      li Function to save virtual trading score data
 
     p
-      a(href='https://hinaser.github.io/systrade/index.html', style="text-decoration: line-through") https://hinaser.github.io/systrade-web/index.html
-      br
-      | I'm preparing to make the app public. Please wait.
+      | If you have any requests/opinions, please post it to #[br]
+      a(href="https://github.com/Hinaser/systrade-web/issues") https://github.com/Hinaser/systrade-web/issues
 
-    p
+    p(style="margin-top: 30px;")
       a(href=url("image/systrade/screenshot-programmable-trade.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-programmable-trade.png"), style="max-width: 90%")
-    p
-      a(href=url("image/systrade/screenshot-result-of-order-history.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-result-of-order-history.png"), style="max-width: 90%")
-    p
-      a(href=url("image/systrade/screenshot-mobile-positions.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-mobile-positions.png"), style="max-width: 90%")
-    p
-      a(href=url("image/systrade/screenshot-mobile-executions.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-mobile-executions.png"), style="max-width: 90%")
+        img(src=url("image/systrade/screenshot-programmable-trade.png"), style="max-width: 90%;")
+
+    p(style="margin-top: 30px;")
+      | Currently, all tradings done virtually. Meaning orders never be sent to real market server.
+      | Inside the app's web page, virtual market server is running to handle
+      | any market orders from user.
+
+      a(href=url("image/systrade/How-virtual-market-works.png"), target="_blank" style="display: block; margin-top: 20px;")
+        img(src=url("image/systrade/How-virtual-market-works.png"), style="max-width: 90%;")
