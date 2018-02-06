@@ -21,22 +21,29 @@ block article
   .article-contents
     p.
       こんにちは、ご興味をお持ちいただきありがとうございます。#[br]
-      SysTradeはbitFlyer APIを利用したビットコインFX取引アプリです。
+      SysTradeはbitFlyer APIを利用したビットコインFX取引アプリです。#[br]
+      現在アルファ版として下記URLでアプリを公開しています。
+    p
+      a(href='https://hinaser.github.io/systrade-web/app') https://hinaser.github.io/systrade-web/app
+
+    | 実装を検討している機能
+    ul
+      li bitFlyer LightningのAPI鍵を利用したリアルトレード
+      li バーチャルトレードの成績保存機能
 
     p
-      a(href='https://hinaser.github.io/systrade/index.html', style="text-decoration: line-through") https://hinaser.github.io/systrade-web/index.html
-      br
-      | 現在公開準備中です。少々お待ちください。
+      | その他機能の要望やご意見がありましたら、#[br]
+      a(href="https://github.com/Hinaser/systrade-web/issues") https://github.com/Hinaser/systrade-web/issues
+      | #[br]へご投稿ください。
 
-    p
+    p(style="margin-top: 30px;")
       a(href=url("image/systrade/screenshot-programmable-trade.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-programmable-trade.png"), style="max-width: 90%")
-    p
-      a(href=url("image/systrade/screenshot-result-of-order-history.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-result-of-order-history.png"), style="max-width: 90%")
-    p
-      a(href=url("image/systrade/screenshot-mobile-positions.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-mobile-positions.png"), style="max-width: 90%")
-    p
-      a(href=url("image/systrade/screenshot-mobile-executions.png"), target="_blank")
-        img(src=url("image/systrade/screenshot-mobile-executions.png"), style="max-width: 90%")
+        img(src=url("image/systrade/screenshot-programmable-trade.png"), style="max-width: 90%;")
+
+    p(style="margin-top: 30px;")
+      | 現在、全てのトレードはバーチャルに実行されます。注文は本物のbitFlyerのマーケットサーバへ送信されません。
+      | SysTradeのWebページ内部で仮想のマーケットサーバが動作しており、このサーバがユーザの買い注文や売り注文を
+      | 内部で処理しています。
+
+      a(href=url("image/systrade/How-virtual-market-works.png"), target="_blank" style="display: block; margin-top: 20px;")
+        img(src=url("image/systrade/How-virtual-market-works.png"), style="max-width: 90%;")
